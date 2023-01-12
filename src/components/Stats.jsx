@@ -9,7 +9,7 @@ const Stats = ({num}) => {
   if (num > 70)  variant="success";
   
   return(
-    <ProgressBar animated variant={variant} now={num} />
+    <ProgressBar variant={variant} now={num} />
   );
 } 
 

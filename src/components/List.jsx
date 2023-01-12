@@ -1,20 +1,21 @@
-import { useContext, useState } from "react";
-import { Card, Button, Container, Row, Col } from "react-bootstrap";
+import { useContext/*, useState */} from "react";
+import { /*Card, Button,*/ Container/*, Row, Col*/ } from "react-bootstrap";
 import { PokemonContext } from "../context/PokemonContext";
-import ModalPokemon from "./ModalPokemon";
+// import ModalPokemon from "./ModalPokemon";
 import InfiniteScroll from 'react-infinite-scroller';
+import CardPokemon from "./CardPokemon";
 
 const List = () => {
   const pokemonContext = useContext(PokemonContext);
 
-  const [modalShow, setModalShow] = useState(false);
-  const [pokemon, setPokemon] = useState([]);
+  // const [modalShow, setModalShow] = useState(false);
+  // const [pokemon, setPokemon] = useState([]);
 
-  const mostrarInfo = (data) => {
-    console.log(data);
-    setModalShow(true);
-    setPokemon(data);
-  }
+  // const mostrarInfo = (data) => {
+  //   console.log(data);
+  //   setModalShow(true);
+  //   setPokemon(data);
+  // }
   return(
     <>
     <Container>
@@ -25,7 +26,8 @@ const List = () => {
         loader={<div key={0}> Loading ...</div>}
         initialLoad={false}
       >
-        <Row className="my-container">
+        <CardPokemon pokemones={pokemonContext.pokemones}/>
+        {/* <Row className="my-container">
           {pokemonContext.pokemones.map((data, index) => (
             <Col className="pb-4" md={4} xl={3} key={index}>
               <Card style={{ width: '18rem' }}>
@@ -33,7 +35,7 @@ const List = () => {
                 <Card.Body>
                   <Card.Title>{data.id}. {data.name}</Card.Title>
                   <Card.Text>
-                    - {data.types[0].type.name} 
+                    - {data.types[0].type.name}
                   </Card.Text>
                   <Button variant="primary" onClick={() => mostrarInfo(data)}>ver mas</Button>
                 </Card.Body>
@@ -44,7 +46,7 @@ const List = () => {
         {pokemon.length === 0 
           ? <div></div> 
           : <ModalPokemon  data={pokemon} show={modalShow} onHide={() => setModalShow(false)} />
-        }
+        } */}
       </InfiniteScroll>
     </Container>
     </>
