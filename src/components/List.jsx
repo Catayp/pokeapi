@@ -21,7 +21,7 @@ const List = () => {
     <Container>
       <InfiniteScroll
         pageStart={0}
-        loadMore={() => pokemonContext.setNum((prev) => prev + 10)}
+        loadMore={() => pokemonContext.setNum((prev) => prev + 40)}
         hasMore={pokemonContext.num < 400 ? true : false}
         loader={<div key={0}> Loading ...</div>}
         initialLoad={false}

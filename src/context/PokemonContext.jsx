@@ -14,7 +14,7 @@ export function PokemonContextProvider({children}) {
       .then(res => res.data);
   }
 
-  const {data: list} = useSWR(`pokemon?limit=70&offset=${num}`, fetch );
+  const {data: list} = useSWR(`pokemon?limit=40&offset=${num}`, fetch );
   useEffect(() => {
     for (let i = 0; i < list?.results.length; i++) {
       axios.get(list.results[i].url)
